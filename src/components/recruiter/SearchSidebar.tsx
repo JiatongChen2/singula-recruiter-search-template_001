@@ -106,9 +106,8 @@ export const SearchSidebar = ({ value, onChange, onReset, onSearch }: Props) => 
       </section>
 
       <Tabs defaultValue="filters" className="space-y-6">
-        <TabsList className="grid grid-cols-2 w-full">
+        <TabsList className="grid grid-cols-1 w-full">
           <TabsTrigger value="filters">Filters</TabsTrigger>
-          <TabsTrigger value="companies">Companies</TabsTrigger>
         </TabsList>
 
         <TabsContent value="filters" className="space-y-6">
@@ -196,6 +195,13 @@ export const SearchSidebar = ({ value, onChange, onReset, onSearch }: Props) => 
                 set("locations", value.locations.filter((x) => x !== t))
               }
             />
+            <TagInput
+              label="Target companies"
+              placeholder="e.g. Google, Stripe, OpenAI"
+              values={value.companies}
+              onAdd={(t) => set("companies", Array.from(new Set([...(value.companies || []), t])))}
+              onRemove={(t) => set("companies", (value.companies || []).filter((x) => x !== t))}
+            />
           </section>
 
           <Separator />
@@ -235,16 +241,6 @@ export const SearchSidebar = ({ value, onChange, onReset, onSearch }: Props) => 
           </section>
         </TabsContent>
 
-        <TabsContent value="companies" className="space-y-4">
-          <p className="text-sm text-muted-foreground">Target candidates currently at these companies.</p>
-          <TagInput
-            label="Target companies"
-            placeholder="e.g. Google, Stripe, OpenAI"
-            values={value.companies}
-            onAdd={(t) => set("companies", Array.from(new Set([...(value.companies || []), t])))}
-            onRemove={(t) => set("companies", (value.companies || []).filter((x) => x !== t))}
-          />
-        </TabsContent>
       </Tabs>
 
       <div className="flex gap-3 pt-2">
