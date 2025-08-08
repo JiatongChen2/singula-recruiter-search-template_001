@@ -30,6 +30,7 @@ function scoreCandidate(c: Candidate, f: Filters) {
   if (f.titles.length && !f.titles.some((t) => c.title.toLowerCase().includes(t.toLowerCase()))) return -1;
   if (f.industries.length && !f.industries.some((i) => c.industry.toLowerCase().includes(i.toLowerCase()))) return -1;
   if (f.locations.length && !f.locations.some((l) => c.location.toLowerCase().includes(l.toLowerCase()))) return -1;
+  if (f.companies && f.companies.length && !f.companies.some((co) => c.company.toLowerCase().includes(co.toLowerCase()))) return -1;
   if (f.openToWorkOnly && !c.openToWork) return -1;
   if (f.minYears && c.yearsExperience < f.minYears) return -1;
   if (f.maxYears && c.yearsExperience > f.maxYears) return -1;

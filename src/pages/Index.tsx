@@ -11,6 +11,7 @@ const initialFilters: Filters = {
   titles: [],
   industries: [],
   locations: [],
+  companies: [],
   openToWorkOnly: false,
   minYears: 0,
   maxYears: 50,
