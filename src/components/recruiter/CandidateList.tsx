@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { Candidate, candidates as seed } from "@/data/candidates";
+import type { Candidate } from "@/data/candidates";
 import { CandidateCard } from "./CandidateCard";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -41,9 +41,11 @@ function scoreCandidate(c: Candidate, f: Filters) {
 export function CandidateList({ filters }: { filters: Filters }) {
   const [sort, setSort] = useState("relevance");
   const [searchInResults, setSearchInResults] = useState("");
+  const [candidates, setCandidates] = useState<Candidate[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const list = useMemo(() => {
-    const filtered = seed
+    const filtered = candidates
       .map((c) => ({ c, score: scoreCandidate(c, filters) }))
       .filter((x) => x.score >= 0)
       .filter((x) =>
@@ -66,17 +68,42 @@ export function CandidateList({ filters }: { filters: Filters }) {
     }
 
     return filtered.map((x) => x.c);
-  }, [filters, sort, searchInResults]);
+  }, [filters, sort, searchInResults, candidates]);
 
   const onSaveSearch = () =>
     toast({ title: "Search saved", description: "Your query was saved for quick access." });
+
+  const onLoadData = async () => {
+    try {
+      setIsLoading(true);
+      const response = await fetch(`/candidate.json`, { cache: "no-cache" });
+      if (!response.ok) {
+        throw new Error(`Failed to load candidate.json (${response.status})`);
+      }
+      const data = (await response.json()) as Candidate[];
+      if (!Array.isArray(data)) {
+        throw new Error("candidate.json is not an array");
+      }
+      setCandidates(data);
+      toast({ title: "Data loaded", description: `Loaded ${data.length} candidates from file.` });
+    } catch (error: unknown) {
+      const message = error instanceof Error ? error.message : "Unknown error";
+      toast({ title: "Load failed", description: message, variant: "destructive" as any });
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   return (
     <section className="flex-1 p-4 md:p-6 space-y-4">
       <header className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
         <div>
           <h1 className="text-2xl font-semibold">Recruiter search</h1>
-          <p className="text-sm text-muted-foreground">{list.length} candidates match your filters</p>
+          <p className="text-sm text-muted-foreground">
+            {candidates.length === 0
+              ? "No candidates loaded. Click 'Load data' to fetch profiles."
+              : `${list.length} candidates match your filters`}
+          </p>
         </div>
         <div className="flex flex-wrap gap-2 items-center">
           <Input
@@ -95,15 +122,24 @@ export function CandidateList({ filters }: { filters: Filters }) {
               <SelectItem value="exp-asc">Experience: Low → High</SelectItem>
             </SelectContent>
           </Select>
+          <Button variant="secondary" onClick={onLoadData} disabled={isLoading}>
+            {isLoading ? "Loading..." : "Load data"}
+          </Button>
           <Button variant="hero" onClick={onSaveSearch}>Save search</Button>
         </div>
       </header>
 
-      <div className="grid grid-cols-1 gap-4">
-        {list.map((c) => (
-          <CandidateCard key={c.id} c={c} />
-        ))}
-      </div>
+      {candidates.length === 0 ? (
+        <div className="p-6 border rounded-md text-sm text-muted-foreground">
+          No data loaded yet. Use the "Load data" button to fetch candidate profiles.
+        </div>
+      ) : (
+        <div className="grid grid-cols-1 gap-4">
+          {list.map((c) => (
+            <CandidateCard key={c.id} c={c} />
+          ))}
+        </div>
+      )}
     </section>
   );
 }
