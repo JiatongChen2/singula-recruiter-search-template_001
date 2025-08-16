@@ -7,6 +7,79 @@ import { Input } from "@/components/ui/input";
 import { toast } from "@/hooks/use-toast";
 import type { Filters } from "./SearchSidebar";
 
+// New schema type for the JSON response
+type CandidateResponse = {
+  data: Array<{
+    firstName: string;
+    lastName: string;
+    summary: string;
+    positions: Array<{
+      titleName: string;
+      description: string | null;
+      companyName: string;
+      locationName: string | null;
+      startMonthYear: { month: number; year: number } | null;
+      endMonthYear: { month: number; year: number } | null;
+      isCurrentCompany: boolean;
+      startTime: number | null;
+      endTime: number | null;
+    }>;
+    educations: Array<{
+      schoolName: string | null;
+      degreeName: string | null;
+      fieldsOfStudyName: string | null;
+      startMonthYear: { month: number; year: number } | null;
+      endMonthYear: { month: number; year: number } | null;
+      startTime: number | null;
+      endTime: number | null;
+    }>;
+    currentPosition: {
+      titleName: string;
+      description: string | null;
+      companyName: string;
+      locationName: string | null;
+      startMonthYear: { month: number; year: number } | null;
+      endMonthYear: { month: number; year: number } | null;
+      isCurrentCompany: boolean;
+      startTime: number | null;
+      endTime: number | null;
+    } | null;
+    latestEducation: {
+      schoolName: string | null;
+      degreeName: string | null;
+      fieldsOfStudyName: string | null;
+      startMonthYear: { month: number; year: number } | null;
+      endMonthYear: { month: number; year: number } | null;
+      startTime: number | null;
+      endTime: number | null;
+    } | null;
+    geographic_state_name: string | null;
+    city_name: string | null;
+    industry: string | null;
+    public_profile_url: string | null;
+    seniority_2_name: string | null;
+    occupation_name: string | null;
+    score: number;
+  }>;
+  pagination: {
+    page: number;
+    per_page: number;
+    total_results: number;
+    has_more: boolean;
+    next_page: number | null;
+    prev_page: number | null;
+  };
+  metadata: {
+    response_time_ms: number;
+    api_version: string;
+    timestamp: string;
+    search_parameters: Record<string, any>;
+    elasticsearch_took: number;
+    total_shards: number;
+    successful_shards: number;
+  };
+};
+
 function scoreCandidate(c: Candidate, f: Filters) {
   let score = 0;
   const q = f.query.toLowerCase();
@@ -80,18 +153,80 @@ export function CandidateList({ filters }: { filters: Filters }) {
       if (!response.ok) {
         throw new Error(`Failed to load candidate.json (${response.status})`);
       }
-      const data = (await response.json()) as Candidate[];
-      if (!Array.isArray(data)) {
-        throw new Error("candidate.json is not an array");
+      const data = (await response.json()) as CandidateResponse;
+      if (!data.data || !Array.isArray(data.data)) {
+        throw new Error("candidate.json does not contain a valid data array");
       }
-      setCandidates(data);
-      toast({ title: "Data loaded", description: `Loaded ${data.length} candidates from file.` });
+      
+      // Convert the new schema to the existing Candidate type for compatibility
+      const convertedCandidates: Candidate[] = data.data.map((c, index) => ({
+        id: (index + 1).toString(),
+        name: `${c.firstName} ${c.lastName}`,
+        title: c.currentPosition?.titleName || c.positions[0]?.titleName || "Unknown",
+        company: c.currentPosition?.companyName || c.positions[0]?.companyName || "Unknown",
+        location: c.currentPosition?.locationName || c.city_name || c.geographic_state_name || "Unknown",
+        industry: c.industry || "Unknown",
+        yearsExperience: calculateYearsExperience(c.positions),
+        skills: extractSkillsFromSummary(c.summary),
+        preferredSkills: [],
+        openToWork: true, // Default to true since we don't have this info in new schema
+        summary: c.summary,
+        avatarUrl: undefined
+      }));
+      
+      setCandidates(convertedCandidates);
+      toast({ title: "Data loaded", description: `Loaded ${convertedCandidates.length} candidates from file.` });
     } catch (error: unknown) {
       const message = error instanceof Error ? error.message : "Unknown error";
       toast({ title: "Load failed", description: message, variant: "destructive" as any });
     } finally {
       setIsLoading(false);
     }
+  };
+
+  // Helper function to calculate years of experience from positions
+  const calculateYearsExperience = (positions: CandidateResponse['data'][0]['positions']): number => {
+    if (!positions.length) return 0;
+    
+    const now = new Date();
+    let totalYears = 0;
+    
+    positions.forEach(position => {
+      if (position.startTime && position.endTime) {
+        const start = new Date(position.startTime * 1000);
+        const end = new Date(position.endTime * 1000);
+        const years = (end.getTime() - start.getTime()) / (1000 * 60 * 60 * 24 * 365.25);
+        totalYears += years;
+      } else if (position.startTime && position.isCurrentCompany) {
+        const start = new Date(position.startTime * 1000);
+        const years = (now.getTime() - start.getTime()) / (1000 * 60 * 60 * 24 * 365.25);
+        totalYears += years;
+      }
+    });
+    
+    return Math.round(totalYears);
+  };
+
+  // Helper function to extract skills from summary text
+  const extractSkillsFromSummary = (summary: string): string[] => {
+    const skills: string[] = [];
+    
+    // Common ML/AI skills to look for
+    const skillKeywords = [
+      'Machine Learning', 'ML', 'AI', 'Artificial Intelligence', 'Deep Learning',
+      'Python', 'TensorFlow', 'PyTorch', 'Scikit-learn', 'Pandas', 'NumPy',
+      'React', 'JavaScript', 'TypeScript', 'Node.js', 'Java', 'C++', 'C#',
+      'SQL', 'MongoDB', 'PostgreSQL', 'AWS', 'Azure', 'GCP', 'Docker',
+      'Kubernetes', 'Git', 'CI/CD', 'REST API', 'GraphQL'
+    ];
+    
+    skillKeywords.forEach(skill => {
+      if (summary.toLowerCase().includes(skill.toLowerCase())) {
+        skills.push(skill);
+      }
+    });
+    
+    return skills.slice(0, 8); // Limit to 8 skills
   };
 
   return (
