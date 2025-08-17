@@ -7,77 +7,46 @@ import { Input } from "@/components/ui/input";
 import { toast } from "@/hooks/use-toast";
 import type { Filters } from "./SearchSidebar";
 
-// New schema type for the JSON response
-type CandidateResponse = {
-  data: Array<{
-    firstName: string;
-    lastName: string;
+// New schema type for the updated JSON response
+type NewCandidateResponse = {
+  search_metadata: {
+    search_date: string;
+    search_query: string;
+    total_candidates: number;
+    search_parameters: {
+      keyword: string;
+      title_free_text: string;
+      skills: string[];
+    };
+  };
+  candidates: Array<{
+    id: number;
+    name: string;
+    current_position: {
+      title: string;
+      company: string;
+      start_date: string;
+      is_current: boolean;
+    };
+    location: {
+      state: string;
+      city: string | null;
+    };
+    education: {
+      latest_degree: string;
+      school: string;
+    };
     summary: string;
-    positions: Array<{
-      titleName: string;
-      description: string | null;
-      companyName: string;
-      locationName: string | null;
-      startMonthYear: { month: number; year: number } | null;
-      endMonthYear: { month: number; year: number } | null;
-      isCurrentCompany: boolean;
-      startTime: number | null;
-      endTime: number | null;
+    key_experience: Array<{
+      title: string;
+      company: string;
+      duration: string;
+      description?: string;
     }>;
-    educations: Array<{
-      schoolName: string | null;
-      degreeName: string | null;
-      fieldsOfStudyName: string | null;
-      startMonthYear: { month: number; year: number } | null;
-      endMonthYear: { month: number; year: number } | null;
-      startTime: number | null;
-      endTime: number | null;
-    }>;
-    currentPosition: {
-      titleName: string;
-      description: string | null;
-      companyName: string;
-      locationName: string | null;
-      startMonthYear: { month: number; year: number } | null;
-      endMonthYear: { month: number; year: number } | null;
-      isCurrentCompany: boolean;
-      startTime: number | null;
-      endTime: number | null;
-    } | null;
-    latestEducation: {
-      schoolName: string | null;
-      degreeName: string | null;
-      fieldsOfStudyName: string | null;
-      startMonthYear: { month: number; year: number } | null;
-      endMonthYear: { month: number; year: number } | null;
-      startTime: number | null;
-      endTime: number | null;
-    } | null;
-    geographic_state_name: string | null;
-    city_name: string | null;
-    industry: string | null;
-    public_profile_url: string | null;
-    seniority_2_name: string | null;
-    occupation_name: string | null;
+    industry: string;
+    linkedin_url: string;
     score: number;
   }>;
-  pagination: {
-    page: number;
-    per_page: number;
-    total_results: number;
-    has_more: boolean;
-    next_page: number | null;
-    prev_page: number | null;
-  };
-  metadata: {
-    response_time_ms: number;
-    api_version: string;
-    timestamp: string;
-    search_parameters: Record<string, any>;
-    elasticsearch_took: number;
-    total_shards: number;
-    successful_shards: number;
-  };
 };
 
 function scoreCandidate(c: Candidate, f: Filters) {
@@ -153,20 +122,20 @@ export function CandidateList({ filters }: { filters: Filters }) {
       if (!response.ok) {
         throw new Error(`Failed to load candidate.json (${response.status})`);
       }
-      const data = (await response.json()) as CandidateResponse;
-      if (!data.data || !Array.isArray(data.data)) {
-        throw new Error("candidate.json does not contain a valid data array");
+      const data = (await response.json()) as NewCandidateResponse;
+      if (!data.candidates || !Array.isArray(data.candidates)) {
+        throw new Error("candidate.json does not contain a valid candidates array");
       }
       
       // Convert the new schema to the existing Candidate type for compatibility
-      const convertedCandidates: Candidate[] = data.data.map((c, index) => ({
-        id: (index + 1).toString(),
-        name: `${c.firstName} ${c.lastName}`,
-        title: c.currentPosition?.titleName || c.positions[0]?.titleName || "Unknown",
-        company: c.currentPosition?.companyName || c.positions[0]?.companyName || "Unknown",
-        location: c.currentPosition?.locationName || c.city_name || c.geographic_state_name || "Unknown",
-        industry: c.industry || "Unknown",
-        yearsExperience: calculateYearsExperience(c.positions),
+      const convertedCandidates: Candidate[] = data.candidates.map((c) => ({
+        id: c.id.toString(),
+        name: c.name,
+        title: c.current_position.title,
+        company: c.current_position.company,
+        location: c.location.city ? `${c.location.city}, ${c.location.state}` : c.location.state,
+        industry: c.industry,
+        yearsExperience: calculateYearsExperienceFromDuration(c.key_experience),
         skills: extractSkillsFromSummary(c.summary),
         preferredSkills: [],
         openToWork: true, // Default to true since we don't have this info in new schema
@@ -178,33 +147,35 @@ export function CandidateList({ filters }: { filters: Filters }) {
       toast({ title: "Data loaded", description: `Loaded ${convertedCandidates.length} candidates from file.` });
     } catch (error: unknown) {
       const message = error instanceof Error ? error.message : "Unknown error";
-      toast({ title: "Load failed", description: message, variant: "destructive" as any });
+      toast({ title: "Load failed", description: message, variant: "destructive" });
     } finally {
       setIsLoading(false);
     }
   };
 
-  // Helper function to calculate years of experience from positions
-  const calculateYearsExperience = (positions: CandidateResponse['data'][0]['positions']): number => {
-    if (!positions.length) return 0;
+  // Helper function to calculate years of experience from duration strings
+  const calculateYearsExperienceFromDuration = (experiences: NewCandidateResponse['candidates'][0]['key_experience']): number => {
+    if (!experiences.length) return 0;
     
-    const now = new Date();
     let totalYears = 0;
     
-    positions.forEach(position => {
-      if (position.startTime && position.endTime) {
-        const start = new Date(position.startTime * 1000);
-        const end = new Date(position.endTime * 1000);
-        const years = (end.getTime() - start.getTime()) / (1000 * 60 * 60 * 24 * 365.25);
-        totalYears += years;
-      } else if (position.startTime && position.isCurrentCompany) {
-        const start = new Date(position.startTime * 1000);
-        const years = (now.getTime() - start.getTime()) / (1000 * 60 * 60 * 24 * 365.25);
-        totalYears += years;
+    experiences.forEach(experience => {
+      const duration = experience.duration;
+      // Parse duration strings like "October 2019 - February 2021" or "March 2021 - March 2022"
+      const yearMatch = duration.match(/(\d{4})/g);
+      if (yearMatch && yearMatch.length >= 2) {
+        const startYear = parseInt(yearMatch[0]);
+        const endYear = parseInt(yearMatch[1]);
+        totalYears += (endYear - startYear);
+      } else if (yearMatch && yearMatch.length === 1) {
+        // For current positions, estimate from start year
+        const startYear = parseInt(yearMatch[0]);
+        const currentYear = new Date().getFullYear();
+        totalYears += (currentYear - startYear);
       }
     });
     
-    return Math.round(totalYears);
+    return Math.max(1, Math.round(totalYears)); // Minimum 1 year
   };
 
   // Helper function to extract skills from summary text
@@ -217,7 +188,9 @@ export function CandidateList({ filters }: { filters: Filters }) {
       'Python', 'TensorFlow', 'PyTorch', 'Scikit-learn', 'Pandas', 'NumPy',
       'React', 'JavaScript', 'TypeScript', 'Node.js', 'Java', 'C++', 'C#',
       'SQL', 'MongoDB', 'PostgreSQL', 'AWS', 'Azure', 'GCP', 'Docker',
-      'Kubernetes', 'Git', 'CI/CD', 'REST API', 'GraphQL'
+      'Kubernetes', 'Git', 'CI/CD', 'REST API', 'GraphQL', 'Computer Vision',
+      'NLP', 'Natural Language Processing', 'Neural Networks', 'OpenCV',
+      'Keras', 'Scikit-learn', 'Matplotlib', 'Seaborn', 'Statistics'
     ];
     
     skillKeywords.forEach(skill => {

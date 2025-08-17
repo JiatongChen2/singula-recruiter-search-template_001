@@ -1,382 +1,381 @@
 {
-  "data": [
-    {
-      "firstName": "Alex",
-      "lastName": "Chen",
-      "summary": "• ML - Research, Model training, evaluation and production\n• Lead and engage across teams, build consensus, and innovate on data driven solutions.\n• An entrepreneurial drive, a can-do attitude to get things done\n\nSKILLS\n• Machine Learning / AI\n• Data Research\n•Trained and deployed a wide range of ML models, mostly deep NN's\n\nLLM\n•Fine tuning(Xfer Learning) a custom LLM for domain specific chat\n\nML tools\n• Tensor Flow, PyTorch\n• Apache Spark (EMR)\n• Python, SQL, JupyterLab\n\nML infrastructure and deployment\n• Docker, AWS ECR, K8, Spinnaker, Sagemaker and EC2 VM",
-      "positions": [
-        {
-          "titleName": "Software Engineer",
-          "description": "•\tApplication integration between CRM and telecom provisioning systems",
-          "companyName": "TechCorp Inc.",
-          "locationName": "San Francisco, California, United States",
-          "startMonthYear": {"month": 9, "year": 2018},
-          "endMonthYear": {"month": 1, "year": 2021},
-          "isCurrentCompany": false,
-          "startTime": 1535760000,
-          "endTime": 1609459200
-        },
-        {
-          "titleName": "Machine Learning Engineer",
-          "description": "•\tAnomaly detection from log files. Predict performance and failure symptoms of cloud databases and clusters.\n•\tDeployed in Public and Hybrid cloud environments.",
-          "companyName": "CloudTech Solutions",
-          "locationName": "Mountain View, CA",
-          "startMonthYear": {"month": 2, "year": 2021},
-          "endMonthYear": {"month": 11, "year": 2023},
-          "isCurrentCompany": false,
-          "startTime": 1612137600,
-          "endTime": 1701388800
-        },
-        {
-          "titleName": "Machine Learning Engineer",
-          "description": "•\tLead a 3 member AI/ML research team for building ML models for automating process control in manufacturing systems",
-          "companyName": "Innovation Labs",
-          "locationName": "Santa Clara, CA",
-          "startMonthYear": {"month": 8, "year": 2023},
-          "endMonthYear": {"month": 6, "year": 2024},
-          "isCurrentCompany": false,
-          "startTime": 1690848000,
-          "endTime": 1717200000
-        },
-        {
-          "titleName": "Software Engineer",
-          "description": "•\tRule learning algorithms to detect fraudulent transactions",
-          "companyName": "SecurePay",
-          "locationName": "Austin, Texas, United States",
-          "startMonthYear": {"month": 8, "year": 2017},
-          "endMonthYear": {"month": 8, "year": 2018},
-          "isCurrentCompany": false,
-          "startTime": 1501545600,
-          "endTime": 1533081600
-        },
-        {
-          "titleName": "Machine Learning Engineer",
-          "description": "•\tOne of the first AI/ML Engineers at DataFlow\n•\tBuilt the AI/ML practice that trained and deployed models as microservices in the cloud to\n         •\tMonitor data systems\n         •\tDetect anomalies in data pipelines\n         •\tHelp with load simulations for planning\n         •\tMake recommendations for optimization\n         •\tProvide a Chat interface using LLM to help with technical support",
-          "companyName": "DataFlow Systems",
-          "locationName": "Mountain View, California, United States",
-          "startMonthYear": {"month": 7, "year": 2024},
-          "endMonthYear": null,
-          "isCurrentCompany": true,
-          "startTime": 1722470400,
-          "endTime": null
-        }
-      ],
-      "educations": [
-        {
-          "schoolName": "Tech University",
-          "degreeName": "Bachelor's degree in Computer Science",
-          "fieldsOfStudyName": null,
-          "startMonthYear": null,
-          "endMonthYear": null,
-          "startTime": null,
-          "endTime": null
-        },
-        {
-          "schoolName": "Advanced Tech Institute",
-          "degreeName": "Master of Science - MS",
-          "fieldsOfStudyName": "Computer Science (Machine Learning / AI)",
-          "startMonthYear": null,
-          "endMonthYear": null,
-          "startTime": null,
-          "endTime": null
-        }
-      ],
-      "currentPosition": {
-        "titleName": "Machine Learning Engineer",
-        "description": "•\tOne of the first AI/ML Engineers at DataFlow\n•\tBuilt the AI/ML practice that trained and deployed models as microservices in the cloud to\n         •\tMonitor data systems\n         •\tDetect anomalies in data pipelines\n         •\tHelp with load simulations for planning\n         •\tMake recommendations for optimization\n         •\tProvide a Chat interface using LLM to help with technical support",
-        "companyName": "DataFlow Systems",
-        "locationName": "Mountain View, California, United States",
-        "startMonthYear": {"month": 7, "year": 2024},
-        "endMonthYear": null,
-        "isCurrentCompany": true,
-        "startTime": 1722470400,
-        "endTime": null
-      },
-      "latestEducation": {
-        "schoolName": "Tech University",
-        "degreeName": "Bachelor's degree in Computer Science",
-        "fieldsOfStudyName": null,
-        "startMonthYear": null,
-        "endMonthYear": null,
-        "startTime": null,
-        "endTime": null
-      },
-      "geographic_state_name": "California",
-      "city_name": "Mountain View, CA",
-      "industry": "Information Technology & Services",
-      "public_profile_url": "https://example.com/profile1",
-      "seniority_2_name": "0",
-      "occupation_name": "Entry",
-      "score": 199.30522
-    },
-    {
-      "firstName": "Sarah",
-      "lastName": "Johnson",
-      "summary": "— Programming: C/C++, Python, Spark, Scala, JAVA , Shell Script, MATLAB, R, perl\n— Strong in data structures, algorithms and data mining\n— Machine Learning/Deep Learning skills: CNN, logistic regression, decision tree, random forest, clustering\n     (Kmeans, Kmedian and GMM), NLP, Knowledge Graph, ranking and recommendation, XGBoost, SVM, RNN (LSTM, Attention Model), GAN, VAE, YOLO algorithm\n— Familiar with MapReduce and parallel programming\n— Experience using machine learning and deep learning frameworks and libraries, including Tensorflow, Keras, Horovod, OpenVINO, Caffe, MXNet, Scikit-Learn\n— Familiar with optimization algorithm, pattern recognition, image processing/computer vision techniques, such as edge detection, image segmentation, image smoothing and filter design\n— Experience with distributed storage and database systems, including SQLite, Cassandra\n— Experience with large-scale and high efficient software development\n— Four years Object Oriented design and development experience",
-      "positions": [
-        {
-          "titleName": "Software Engineer",
-          "description": "•\tSoftware development for computational systems with a focus on optimization techniques using C++.\n•\tBuilt convolutional neural network (CNN) model-based defect detection classifier, achieved 99% accuracy and 20X speed up compared with traditional techniques\n•\tDeveloped computational geometry algorithm and polygon handling engine\n•\tDesign and optimize infrastructural search/query engine for geometric layout database\n•\tWork with other engineers to effectively align and simplify APIs based on user requirements",
-          "companyName": "Quantum Systems",
-          "locationName": "San Francisco Bay Area",
-          "startMonthYear": {"month": 1, "year": 2020},
-          "endMonthYear": {"month": 2, "year": 2023},
-          "isCurrentCompany": false,
-          "startTime": 1577836800,
-          "endTime": 1675209600
-        },
-        {
-          "titleName": "Machine Learning Engineer",
-          "description": "•\tDeveloped machine learning algorithm (supervised learning) to solve complex optimization problems\n•\tDesigned frequency-dependent filter to improve signal processing\n•\tDeveloped python scripts flow for data mining in large datasets",
-          "companyName": "DataWorks",
-          "locationName": "Houston, Texas Area",
-          "startMonthYear": {"month": 5, "year": 2019},
-          "endMonthYear": {"month": 1, "year": 2020},
-          "isCurrentCompany": false,
-          "startTime": 1556668800,
-          "endTime": 1577836800
-        },
-        {
-          "titleName": "Machine Learning Engineer",
-          "description": "machine learning, deep learning, computer vision, pattern recognition and image processing\n➢ Using computer vision algorithms to aid inspection and calibration systems.\n➢ Machine learning for pattern recognition.\n➢ Deep learning network architect(GAN, ResNet, DenseNet, InceptionNet) for image/domain transformation, feature extraction, detection, and classification.",
-          "companyName": "VisionTech",
-          "locationName": "San Francisco Bay Area",
-          "startMonthYear": {"month": 2, "year": 2023},
-          "endMonthYear": {"month": 10, "year": 2024},
-          "isCurrentCompany": false,
-          "startTime": 1675209600,
-          "endTime": 1728000000
-        },
-        {
-          "titleName": "Machine Learning Intern",
-          "description": "Team: Advanced Algorithms\nMachine Learning algorithm to solve complex optimization problems",
-          "companyName": "Research Corp",
-          "locationName": null,
-          "startMonthYear": {"month": 5, "year": 2018},
-          "endMonthYear": {"month": 8, "year": 2018},
-          "isCurrentCompany": false,
-          "startTime": 1525132800,
-          "endTime": 1533081600
-        },
-        {
-          "titleName": "Software Engineer",
-          "description": "Ranking, Information Retrieval, NLP, ML and Large Scale Recommendation System\n\nLead or be the main developer of multiple projects in the field of recommendation, search ranking, realtime user sequence personalization, GPU serving, information retrieval and so on.",
-          "companyName": "SocialTech",
-          "locationName": "San Francisco Bay Area",
-          "startMonthYear": {"month": 10, "year": 2024},
-          "endMonthYear": null,
-          "isCurrentCompany": true,
-          "startTime": 1728000000,
-          "endTime": null
-        }
-      ],
-      "educations": [
-        {
-          "schoolName": "University of Technology",
-          "degreeName": "Bachelor of Science - BS",
-          "fieldsOfStudyName": "Engineering Physics/Applied Physics",
-          "startMonthYear": null,
-          "endMonthYear": null,
-          "startTime": null,
-          "endTime": null
-        },
-        {
-          "schoolName": "Tech University",
-          "degreeName": "Doctor of Philosophy - PhD",
-          "fieldsOfStudyName": "Computational Science",
-          "startMonthYear": null,
-          "endMonthYear": null,
-          "startTime": null,
-          "endTime": null
-        }
-      ],
-      "currentPosition": {
-        "titleName": "Software Engineer",
-        "description": "Ranking, Information Retrieval, NLP, ML and Large Scale Recommendation System\n\nLead or be the main developer of multiple projects in the field of recommendation, search ranking, realtime user sequence personalization, GPU serving, information retrieval and so on.",
-        "companyName": "SocialTech",
-        "locationName": "San Francisco Bay Area",
-        "startMonthYear": {"month": 10, "year": 2024},
-        "endMonthYear": null,
-        "isCurrentCompany": true,
-        "startTime": 1728000000,
-        "endTime": null
-      },
-      "latestEducation": {
-        "schoolName": "University of Technology",
-        "degreeName": "Bachelor of Science - BS",
-        "fieldsOfStudyName": "Engineering Physics/Applied Physics",
-        "startMonthYear": null,
-        "endMonthYear": null,
-        "startTime": null,
-        "endTime": null
-      },
-      "geographic_state_name": "California",
-      "city_name": null,
-      "industry": "Internet",
-      "public_profile_url": "https://example.com/profile2",
-      "seniority_2_name": "0",
-      "occupation_name": "Entry",
-      "score": 195.98038
-    },
-    {
-      "firstName": "Michael",
-      "lastName": "Rodriguez",
-      "summary": "I am a senior software engineer in the Statistics and Machine learning team at MathWorks. I develop machine learning features in the areas of Machine learning pipelines, Automated Machine Learning and Hyper-parameter optimization.",
-      "positions": [
-        {
-          "titleName": "Associate Software Engineer",
-          "description": null,
-          "companyName": "AeroTech",
-          "locationName": null,
-          "startMonthYear": {"month": 2, "year": 2016},
-          "endMonthYear": {"month": 11, "year": 2017},
-          "isCurrentCompany": false,
-          "startTime": 1454371200,
-          "endTime": 1512086400
-        },
-        {
-          "titleName": "Software Engineer",
-          "description": "Member of platform software development team, developing applications in C++.\nExperienced in working in a full life cycle project, deriving requirements, developing software, writing unit tests etc. \n",
-          "companyName": "AeroTech",
-          "locationName": null,
-          "startMonthYear": {"month": 11, "year": 2017},
-          "endMonthYear": {"month": 6, "year": 2019},
-          "isCurrentCompany": false,
-          "startTime": 1512086400,
-          "endTime": 1559347200
-        },
-        {
-          "titleName": "Software Engineer",
-          "description": "Develop and improve machine learning software developing new features, enhancing the existing features.\nIntegrating features with existing machine learning software in the areas of AutoML and Hyperparameter optimization.\nResponsible for owning and shipping complete software features. Developing requirements through customer interviews and usability tests, developing appropriate architecture and implementing designs and performing unit tests.",
-          "companyName": "MathWorks",
-          "locationName": "Greater Boston",
-          "startMonthYear": {"month": 5, "year": 2022},
-          "endMonthYear": {"month": 4, "year": 2024},
-          "isCurrentCompany": false,
-          "startTime": 1651363200,
-          "endTime": 1711929600
-        },
-        {
-          "titleName": "Senior Software Engineer",
-          "description": "I am responsible for the full life cycle development of multiple machine learning features in the areas of Machine learning pipelines, AutoML and Hyperparameter tuning using Bayesian optimization.",
-          "companyName": "MathWorks",
-          "locationName": "Natick, Massachusetts, United States",
-          "startMonthYear": {"month": 5, "year": 2024},
-          "endMonthYear": null,
-          "isCurrentCompany": true,
-          "startTime": 1714521600,
-          "endTime": null
-        },
-        {
-          "titleName": "C++ Software Intern ",
-          "description": "Developed Edit Time Checks to identify errors made by users when they are developing state flow models \nWorked towards reducing the memory utilization of the Simulink while editing models with more than 10000 blocks \n",
-          "companyName": "MathWorks",
-          "locationName": null,
-          "startMonthYear": {"month": 5, "year": 2020},
-          "endMonthYear": {"month": 8, "year": 2020},
-          "isCurrentCompany": false,
-          "startTime": 1588291200,
-          "endTime": 1596240000
-        },
-        {
-          "titleName": "ASE",
-          "description": "Contributing to software development by adding new features to the machine learning toolbox in MATLAB \nProviding application support to MathWorks customers for highly complex technical issues in MATLAB \n",
-          "companyName": "MathWorks",
-          "locationName": "Greater Boston",
-          "startMonthYear": {"month": 6, "year": 2021},
-          "endMonthYear": {"month": 4, "year": 2022},
-          "isCurrentCompany": false,
-          "startTime": 1622505600,
-          "endTime": 1648771200
-        }
-      ],
-      "educations": [
-        {
-          "schoolName": "Advanced Computing Institute",
-          "degreeName": "Post Graduate Diploma",
-          "fieldsOfStudyName": "Embedded System Design",
-          "startMonthYear": null,
-          "endMonthYear": null,
-          "startTime": 1293840000,
-          "endTime": 1325376000
-        },
-        {
-          "schoolName": "Engineering College",
-          "degreeName": "Bachelor of Technology (B.Tech.)",
-          "fieldsOfStudyName": "Electronics and Communication Engineering",
-          "startMonthYear": null,
-          "endMonthYear": null,
-          "startTime": 1167609600,
-          "endTime": 1293840000
-        },
-        {
-          "schoolName": "Tech Institute of Advanced Studies",
-          "degreeName": "Master of Science (M.S.)",
-          "fieldsOfStudyName": "Information Networking",
-          "startMonthYear": null,
-          "endMonthYear": null,
-          "startTime": 1420070400,
-          "endTime": 1483228800
-        }
-      ],
-      "currentPosition": {
-        "titleName": "Senior Software Engineer",
-        "description": "I am responsible for the full life cycle development of multiple machine learning features in the areas of Machine learning pipelines, AutoML and Hyperparameter tuning using Bayesian optimization.",
-        "companyName": "MathWorks",
-        "locationName": "Natick, Massachusetts, United States",
-        "startMonthYear": {"month": 5, "year": 2024},
-        "endMonthYear": null,
-        "isCurrentCompany": true,
-        "startTime": 1714521600,
-        "endTime": null
-      },
-      "latestEducation": {
-        "schoolName": "Tech Institute of Advanced Studies",
-        "degreeName": "Master of Science (M.S.)",
-        "fieldsOfStudyName": "Information Networking",
-        "startMonthYear": null,
-        "endMonthYear": null,
-        "startTime": 1420070400,
-        "endTime": 1483228800
-      },
-      "geographic_state_name": "Massachusetts",
-      "city_name": null,
-      "industry": "Computer Software",
-      "public_profile_url": "https://example.com/profile3",
-      "seniority_2_name": "0",
-      "occupation_name": "Entry",
-      "score": 195.62312
-    }
-  ],
-  "pagination": {
-    "page": 1,
-    "per_page": 10,
-    "total_results": 10,
-    "has_more": true,
-    "next_page": 2,
-    "prev_page": null
-  },
-  "metadata": {
-    "response_time_ms": 3695.49,
-    "api_version": "v2",
-    "timestamp": "2025-08-15T23:34:59.013930",
+  "search_metadata": {
+    "search_date": "2025-08-17",
+    "search_query": "Machine Learning Engineer",
+    "total_candidates": 10,
     "search_parameters": {
-      "keyword": "machine learning",
-      "title_free_text": "software engineer",
-      "summary_free_text": "",
-      "current_company_free_text": "",
-      "first_name": "",
-      "last_name": "",
-      "past_company_list": "",
-      "location_list": "",
-      "current_school_free_text": "",
-      "industry_list": "",
-      "school_list": "",
-      "skills": null,
-      "size": 10
+      "keyword": "Machine Learning Engineer",
+      "title_free_text": "Machine Learning Engineer, ML Engineer, Data Scientist, AI Engineer",
+      "skills": [
+        "Machine Learning",
+        "Python",
+        "TensorFlow",
+        "PyTorch",
+        "Deep Learning",
+        "Neural Networks",
+        "Data Science",
+        "Artificial Intelligence"
+      ]
+    }
+  },
+  "candidates": [
+    {
+      "id": 1,
+      "name": "Alex Chen",
+      "current_position": {
+        "title": "Lead AI Engineer",
+        "company": "TechVision AI",
+        "start_date": "March 2022",
+        "is_current": true
+      },
+      "location": {
+        "state": "California",
+        "city": null
+      },
+      "education": {
+        "latest_degree": "Master's degree in Computer Science",
+        "school": "Tech University of California"
+      },
+      "summary": "Skilled in Deep Learning, Computer Vision, OpenCV, Artificial Neural Networks and Machine Learning algorithms. MS in Computer Science from Tech University of California.",
+      "key_experience": [
+        {
+          "title": "Machine Learning Engineer",
+          "company": "DataFlow Systems",
+          "duration": "October 2019 - February 2021",
+          "description": "Implemented deep learning, machine learning model for object detection and classification. Working on a computer vision based surveillance system."
+        },
+        {
+          "title": "AI Engineer - Computer Vision/Deep Learning",
+          "company": "TechVision AI",
+          "duration": "March 2021 - March 2022"
+        }
+      ],
+      "industry": "Information Technology & Services",
+      "linkedin_url": "https://example.com/profile1",
+      "score": 575.45
     },
-    "elasticsearch_took": 0,
-    "total_shards": 1,
-    "successful_shards": 1
-  }
+    {
+      "id": 2,
+      "name": "Sarah Johnson",
+      "current_position": {
+        "title": "Lead AI Machine Learning Engineer",
+        "company": "Innovation Labs",
+        "start_date": "July 2023",
+        "is_current": true
+      },
+      "location": {
+        "state": "Ohio",
+        "city": "Tech City, OH"
+      },
+      "education": {
+        "latest_degree": "Advanced Machine Learning Program",
+        "school": "Tech Institute"
+      },
+      "summary": "Python, Pandas, Scikit-Learn, Matplotlib, NumPy, Tensorflow, OpenCV, Keras, Seaborn, Statistics, Probability, Differential Calculus, Linear Algebra, SQL, Machine Learning Algorithms, Feature Engineering, Feature Selection, Google Cloud Platform, NLP, Jupyter, Excel, Powerpoint, Word, MATLAB, Speech Recognition, Sentiment Analysis, Time Series data, Agile Methodology, HTML, CSS, JavaScript, PHP",
+      "key_experience": [
+        {
+          "title": "Data Scientist/ AI ML Engineer",
+          "company": "AI Solutions Group",
+          "duration": "October 2022 - August 2023",
+          "description": "Design, build, and analyze production ready ML models on the Search Team for TechCorp."
+        },
+        {
+          "title": "Machine Learning Engineer",
+          "company": "VisionTech",
+          "duration": "January 2022 - April 2022",
+          "description": "Engineering Machine Learning Solutions with Computer Vision and the Sense AI Platform"
+        }
+      ],
+      "industry": "Computer Software",
+      "linkedin_url": "https://example.com/profile2",
+      "score": 572.11
+    },
+    {
+      "id": 3,
+      "name": "Michael Rodriguez",
+      "current_position": {
+        "title": "Senior Data Scientist",
+        "company": "Global Tech Solutions",
+        "start_date": "August 2023",
+        "is_current": true
+      },
+      "location": {
+        "state": "California",
+        "city": null
+      },
+      "education": {
+        "latest_degree": "Master of Science - MS in Electrical Engineering",
+        "school": "Advanced Tech University"
+      },
+      "summary": "Experienced AI/ML Engineer with a proven track record of applying Machine Learning techniques to solve real world problems. Skilled in building complex neural networks and optimizing models for scalability and performance.",
+      "key_experience": [
+        {
+          "title": "AI/ML Engineer",
+          "company": "AutoTech Industries",
+          "duration": "September 2021 - June 2023",
+          "description": "Developed AI/ML framework and applications for Advanced Driver Assistance Systems (ADAS). Trained custom MobileNet-v2 convolutional neural networks to detect trailer angles with 95% accuracy."
+        },
+        {
+          "title": "Machine Learning Engineer",
+          "company": "RealTech Inc.",
+          "duration": "May 2021 - September 2021",
+          "description": "Led the charge in the Machine Learning development for RealTech's XR application. Built and fine-tuned YOLO v4 models using TensorFlow."
+        }
+      ],
+      "industry": "Computer Software",
+      "linkedin_url": "https://example.com/profile3",
+      "score": 559.49
+    },
+    {
+      "id": 4,
+      "name": "Emily Zhang",
+      "current_position": {
+        "title": "Machine Learning Engineer",
+        "company": "SocialTech",
+        "start_date": "January 2022",
+        "is_current": true
+      },
+      "location": {
+        "state": "California",
+        "city": null
+      },
+      "education": {
+        "latest_degree": "Master's degree in Computer Science",
+        "school": "Tech Polytechnic Institute"
+      },
+      "summary": "A problem solver provides machine learning/deep learning service to challenging business problems and delivers valuable insights. Familiar with Python, Java, Spark, Torch, ML and AWS. Experienced in machine learning, natural language processing and recommendation system.",
+      "key_experience": [
+        {
+          "title": "Senior Machine Learning Engineer",
+          "company": "MediaCorp",
+          "duration": "April 2021 - January 2022",
+          "description": "working on movie/TV series recommendation system in StreamView.tv with Spark/Scala, Tensorflow, pyTorch"
+        },
+        {
+          "title": "Machine Learning Engineer",
+          "company": "JobPortal",
+          "duration": "June 2019 - March 2021",
+          "description": "Add features to improve ranking model in the job search engine. Build machine learning, NLP, word and graph embedding models."
+        }
+      ],
+      "industry": "Internet",
+      "linkedin_url": "https://example.com/profile4",
+      "score": 552.27
+    },
+    {
+      "id": 5,
+      "name": "David Martinez",
+      "current_position": {
+        "title": "Founder, CEO",
+        "company": "DeployTech",
+        "start_date": "August 2023",
+        "is_current": true
+      },
+      "location": {
+        "state": "Washington",
+        "city": "Seattle, WA"
+      },
+      "education": {
+        "latest_degree": "Master of Science (M.S.) in Statistics",
+        "school": "Tech University Chicago"
+      },
+      "summary": "Building the next generation of retrieval + AI systems. I've been working on model inference, retrieval and ranking algorithms, model deployment and monitoring, and model training pipelines. I've been the technical lead for search ML, and leading the development of vector search over a trillion documents.",
+      "key_experience": [
+        {
+          "title": "Machine Learning Engineer",
+          "company": "CloudStorage",
+          "duration": "February 2019 - August 2023"
+        },
+        {
+          "title": "Machine Learning Engineer",
+          "company": "DataInsights",
+          "duration": "October 2016 - July 2017",
+          "description": "Led creation of information extraction pipelines using Python, sklearn, and TensorFlow on AWS. Built novel deep learning Named Entity Recognition and Linking system."
+        }
+      ],
+      "industry": "Internet",
+      "linkedin_url": "https://example.com/profile5",
+      "score": 549.31
+    },
+    {
+      "id": 6,
+      "name": "Lisa Thompson",
+      "current_position": {
+        "title": "Senior Machine Learning Engineer",
+        "company": "TechCorp",
+        "start_date": "January 2022",
+        "is_current": true
+      },
+      "location": {
+        "state": "California",
+        "city": null
+      },
+      "education": {
+        "latest_degree": "Master's degree in Computer Science",
+        "school": "Tech University of California"
+      },
+      "summary": "Experienced ML Engineer with expertise in recommendation systems, search ranking, and large-scale machine learning. Skilled in Python, TensorFlow, PyTorch, and distributed computing frameworks.",
+      "key_experience": [
+        {
+          "title": "Machine Learning Engineer",
+          "company": "SearchTech",
+          "duration": "March 2021 - January 2022",
+          "description": "Developed machine learning models for search ranking and recommendation systems. Implemented A/B testing frameworks and model evaluation pipelines."
+        },
+        {
+          "title": "Data Scientist",
+          "company": "AnalyticsCorp",
+          "duration": "June 2019 - March 2021",
+          "description": "Built predictive models for customer behavior analysis and business intelligence. Used Python, SQL, and various ML libraries."
+        }
+      ],
+      "industry": "Internet",
+      "linkedin_url": "https://example.com/profile6",
+      "score": 548.92
+    },
+    {
+      "id": 7,
+      "name": "Robert Wilson",
+      "current_position": {
+        "title": "Machine Learning Engineer",
+        "company": "AI Solutions",
+        "start_date": "March 2022",
+        "is_current": true
+      },
+      "location": {
+        "state": "New York",
+        "city": "New York, NY"
+      },
+      "education": {
+        "latest_degree": "Master's degree in Computer Science",
+        "school": "Tech Institute of New York"
+      },
+      "summary": "Passionate about applying machine learning to solve real-world problems. Experienced in computer vision, natural language processing, and deep learning. Proficient in Python, PyTorch, TensorFlow, and cloud platforms.",
+      "key_experience": [
+        {
+          "title": "ML Engineer",
+          "company": "VisionAI",
+          "duration": "September 2021 - March 2022",
+          "description": "Developed computer vision models for object detection and image classification. Implemented real-time inference pipelines."
+        },
+        {
+          "title": "Data Scientist",
+          "company": "InsightCorp",
+          "duration": "May 2020 - September 2021",
+          "description": "Built predictive models for financial data analysis and risk assessment. Used statistical methods and machine learning algorithms."
+        }
+      ],
+      "industry": "Financial Services",
+      "linkedin_url": "https://example.com/profile7",
+      "score": 547.18
+    },
+    {
+      "id": 8,
+      "name": "Jennifer Lee",
+      "current_position": {
+        "title": "Senior ML Engineer",
+        "company": "DataFlow",
+        "start_date": "June 2022",
+        "is_current": true
+      },
+      "location": {
+        "state": "Texas",
+        "city": "Austin, TX"
+      },
+      "education": {
+        "latest_degree": "PhD in Computer Science",
+        "school": "Tech University of Texas"
+      },
+      "summary": "Research-driven ML Engineer with expertise in natural language processing and large language models. Published multiple papers in top-tier conferences. Experienced in PyTorch, Transformers, and distributed training.",
+      "key_experience": [
+        {
+          "title": "ML Research Engineer",
+          "company": "ResearchCorp",
+          "duration": "August 2021 - June 2022",
+          "description": "Conducted research on transformer architectures and attention mechanisms. Implemented novel NLP models and evaluation frameworks."
+        },
+        {
+          "title": "Machine Learning Engineer",
+          "company": "TechStartup",
+          "duration": "January 2020 - August 2021",
+          "description": "Built end-to-end ML pipelines for text classification and sentiment analysis. Deployed models to production using Docker and Kubernetes."
+        }
+      ],
+      "industry": "Research",
+      "linkedin_url": "https://example.com/profile8",
+      "score": 545.67
+    },
+    {
+      "id": 9,
+      "name": "Christopher Brown",
+      "current_position": {
+        "title": "ML Platform Engineer",
+        "company": "CloudTech",
+        "start_date": "September 2022",
+        "is_current": true
+      },
+      "location": {
+        "state": "Washington",
+        "city": "Bellevue, WA"
+      },
+      "education": {
+        "latest_degree": "Master's degree in Software Engineering",
+        "school": "Tech University of Washington"
+      },
+      "summary": "Infrastructure-focused ML Engineer specializing in building scalable ML platforms and MLOps pipelines. Expert in Kubernetes, Docker, AWS, and model serving architectures. Passionate about making ML models production-ready.",
+      "key_experience": [
+        {
+          "title": "ML Infrastructure Engineer",
+          "company": "PlatformCorp",
+          "duration": "March 2021 - September 2022",
+          "description": "Built ML model serving infrastructure using Kubernetes and Docker. Implemented automated model deployment and monitoring systems."
+        },
+        {
+          "title": "Software Engineer",
+          "company": "TechCorp",
+          "duration": "July 2019 - March 2021",
+          "description": "Developed backend services and APIs for ML model inference. Worked with Python, FastAPI, and PostgreSQL."
+        }
+      ],
+      "industry": "Cloud Computing",
+      "linkedin_url": "https://example.com/profile9",
+      "score": 543.89
+    },
+    {
+      "id": 10,
+      "name": "Amanda Garcia",
+      "current_position": {
+        "title": "AI Research Engineer",
+        "company": "Research Labs",
+        "start_date": "November 2022",
+        "is_current": true
+      },
+      "location": {
+        "state": "Massachusetts",
+        "city": "Cambridge, MA"
+      },
+      "education": {
+        "latest_degree": "Master's degree in Artificial Intelligence",
+        "school": "Tech Institute of Massachusetts"
+      },
+      "summary": "Research-oriented AI Engineer with focus on reinforcement learning and multi-agent systems. Experienced in PyTorch, Gym, and simulation environments. Published research in top AI conferences and journals.",
+      "key_experience": [
+        {
+          "title": "AI Research Engineer",
+          "company": "AI Research Institute",
+          "duration": "May 2021 - November 2022",
+          "description": "Conducted research on multi-agent reinforcement learning for autonomous systems. Developed novel algorithms for cooperative behavior."
+        },
+        {
+          "title": "Machine Learning Engineer",
+          "company": "RoboticsCorp",
+          "duration": "September 2020 - May 2021",
+          "description": "Implemented reinforcement learning algorithms for robotic control and navigation. Built simulation environments for training and testing."
+        }
+      ],
+      "industry": "Research & Development",
+      "linkedin_url": "https://example.com/profile10",
+      "score": 541.23
+    }
+  ]
 }
